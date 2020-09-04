@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Junhao Wang" />
+
+
+<title>My Report</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">my blog</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">COVID-19 in Kuwait</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">My Report</h1>
+<h4 class="author">Junhao Wang</h4>
+
+</div>
+
+
+<div id="data-source" class="section level1">
+<h1><span class="header-section-number">1</span> data source:</h1>
+<pre><code>Datasets are from https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series</code></pre>
+</div>
+<div id="data-discription" class="section level1">
+<h1><span class="header-section-number">2</span> data discription:</h1>
+<pre><code> These two datasets contain the Information about the number of confirmed and number of death from all over the world</code></pre>
+<p>As is shown below <a href="#tab:table"><strong>??</strong></a> , the number of confirmed cases is steadily growing, there is some policies like government suspending work and suspending air travel and border travel, and curfew carried out, and we can see that the number of cases confirmed is not exploding, I believe these policies worked a bit, but the country has not controlled the situation yet.
+<div id="htmlwidget-6fe6daf7e560dced90c6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6fe6daf7e560dced90c6">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193"],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,3,3,3,5,6,7,9,11,13,14,15,19,20,22,23,24,26,30,33,38,40,40,42,44,47,49,58,65,75,82,88,96,107,112,118,121,124,129,138,148,156,165,172,175,185,194,205,212,220,226,230,236,244,254,264,269,273,275,279,285,289,296,298,303,306,308,313,319,326,330,334,337,339,341,344,348,350,354,358,359,360,365,368,373,377,379,382,383,386,390,393,396,399,402,404,407,408,408,412,417,421,425,429,433,438,442,444,445,447,453,457,461,465,468,469,471,474,478,482,486,489,489,494,498,501,502,505,507,509,511,513,515,518,519,521,522,525,528,530,531,534,535,536],[1,11,26,43,45,45,45,56,56,56,58,58,61,64,64,69,72,80,80,104,112,123,130,142,148,159,176,188,189,191,195,208,225,235,255,266,289,317,342,417,479,556,665,743,855,910,993,1154,1234,1300,1355,1405,1524,1658,1751,1915,1995,2080,2248,2399,2614,2892,3075,3288,3440,3740,4024,4377,4619,4983,5278,5804,6289,6567,7208,7623,8688,9286,10277,11028,11975,12860,13802,14850,15691,16764,17568,18609,19564,20464,21302,21967,22575,23267,24112,25184,26192,27043,27762,28649,29359,29921,30644,31131,31848,32510,33140,33823,34432,34952,35466,35920,36431,36958,37533,38074,38678,39145,39650,40291,41033,41879,42788,43703,44391,44942,45524,46195,46940,47859,48672,49303,49941,50644,51245,52007,52840,53580,54058,54894,55508,56174,56877,57668,58221,58904,59204,59763,60434,61185,61872,62625,63309,63773,64379,65149,65903,66529,66957,67448,67911,68299,68774,69425,70045,70727,71199,71713,72400,73068,73785,74486,75185,75697,76205,76827,77470,78145,78767,79269,79957,80528,80960,81573,82271,82945,83578,84224,84636,85109,85811,86478,87378],["2020-02-24","2020-02-25","2020-02-26","2020-02-27","2020-02-28","2020-02-29","2020-03-01","2020-03-02","2020-03-03","2020-03-04","2020-03-05","2020-03-06","2020-03-07","2020-03-08","2020-03-09","2020-03-10","2020-03-11","2020-03-12","2020-03-13","2020-03-14","2020-03-15","2020-03-16","2020-03-17","2020-03-18","2020-03-19","2020-03-20","2020-03-21","2020-03-22","2020-03-23","2020-03-24","2020-03-25","2020-03-26","2020-03-27","2020-03-28","2020-03-29","2020-03-30","2020-03-31","2020-04-01","2020-04-02","2020-04-03","2020-04-04","2020-04-05","2020-04-06","2020-04-07","2020-04-08","2020-04-09","2020-04-10","2020-04-11","2020-04-12","2020-04-13","2020-04-14","2020-04-15","2020-04-16","2020-04-17","2020-04-18","2020-04-19","2020-04-20","2020-04-21","2020-04-22","2020-04-23","2020-04-24","2020-04-25","2020-04-26","2020-04-27","2020-04-28","2020-04-29","2020-04-30","2020-05-01","2020-05-02","2020-05-03","2020-05-04","2020-05-05","2020-05-06","2020-05-07","2020-05-08","2020-05-09","2020-05-10","2020-05-11","2020-05-12","2020-05-13","2020-05-14","2020-05-15","2020-05-16","2020-05-17","2020-05-18","2020-05-19","2020-05-20","2020-05-21","2020-05-22","2020-05-23","2020-05-24","2020-05-25","2020-05-26","2020-05-27","2020-05-28","2020-05-29","2020-05-30","2020-05-31","2020-06-01","2020-06-02","2020-06-03","2020-06-04","2020-06-05","2020-06-06","2020-06-07","2020-06-08","2020-06-09","2020-06-10","2020-06-11","2020-06-12","2020-06-13","2020-06-14","2020-06-15","2020-06-16","2020-06-17","2020-06-18","2020-06-19","2020-06-20","2020-06-21","2020-06-22","2020-06-23","2020-06-24","2020-06-25","2020-06-26","2020-06-27","2020-06-28","2020-06-29","2020-06-30","2020-07-01","2020-07-02","2020-07-03","2020-07-04","2020-07-05","2020-07-06","2020-07-07","2020-07-08","2020-07-09","2020-07-10","2020-07-11","2020-07-12","2020-07-13","2020-07-14","2020-07-15","2020-07-16","2020-07-17","2020-07-18","2020-07-19","2020-07-20","2020-07-21","2020-07-22","2020-07-23","2020-07-24","2020-07-25","2020-07-26","2020-07-27","2020-07-28","2020-07-29","2020-07-30","2020-07-31","2020-08-01","2020-08-02","2020-08-03","2020-08-04","2020-08-05","2020-08-06","2020-08-07","2020-08-08","2020-08-09","2020-08-10","2020-08-11","2020-08-12","2020-08-13","2020-08-14","2020-08-15","2020-08-16","2020-08-17","2020-08-18","2020-08-19","2020-08-20","2020-08-21","2020-08-22","2020-08-23","2020-08-24","2020-08-25","2020-08-26","2020-08-27","2020-08-28","2020-08-29","2020-08-30","2020-08-31","2020-09-01","2020-09-02","2020-09-03"],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.00208768267223382,0.00179856115107914,0.00150375939849624,0.00134589502018843,0.00116959064327485,0.0010989010989011,0.00100704934541793,0.000866551126516464,0.000810372771474878,0.00153846153846154,0.0022140221402214,0.00213523131672598,0.00196850393700787,0.00301568154402895,0.00342661336379212,0.00365535248041775,0.00451127819548872,0.00528846153846154,0.00578291814946619,0.00583576490204252,0.00573833205814843,0.00656984785615491,0.00650406504065041,0.00669099756690998,0.00668604651162791,0.00641711229946524,0.00646123260437376,0.00685400959561343,0.00714440355055207,0.00762592815572948,0.00757862826828344,0.00689179875947622,0.00667832723803466,0.0067001675041876,0.00652053274139845,0.00642791551882461,0.00667587476979742,0.00699978462201163,0.00729784956699426,0.00743561842582517,0.00734864300626305,0.00746500777604977,0.00775249963773366,0.00754208754208754,0.00752023452934803,0.00721784776902887,0.00705828779599271,0.00693212961470256,0.00705377223471683,0.00723221266614543,0.00732325603229744,0.00751126690035053,0.00761904761904762,0.00752138221515451,0.00767252820172528,0.00770330368487929,0.0078268173488088,0.00783936693414192,0.00792450111663425,0.00788858249851653,0.00783405429340236,0.00788743691721533,0.00796240699647566,0.00815906973756063,0.00828937452901281,0.00827437711473393,0.00823777911888956,0.00813056204357981,0.00810292750929368,0.00815403982604715,0.00814864941070321,0.00824053452115813,0.0081798468337405,0.00819849558958818,0.00815282551354808,0.00808950990177024,0.00809245565954806,0.00814918891301571,0.0082219419924338,0.00819041473281874,0.00813978992518217,0.00804699252608706,0.00792278208843601,0.00780266800906116,0.00774931855556307,0.00774331360420097,0.00768825235040858,0.0076631670094166,0.00762675756284619,0.00750120144591404,0.00739644970414201,0.00740320061659534,0.007368695060171,0.00736513703498934,0.00735681529905357,0.00728748053146692,0.00722937168811506,0.00714818962299365,0.00714047874505161,0.00710460159580282,0.00708006053181523,0.00704952469113825,0.00701513792921568,0.00697093708815981,0.00693907696535614,0.00690954773869347,0.00689142625498277,0.00682696651774509,0.00681735446933845,0.00681539593037509,0.00680437031290406,0.00678642714570858,0.00677628773160214,0.00678970724287708,0.00680346075583653,0.00678444795775837,0.00673717433197275,0.00668881239760105,0.00667592634078588,0.00671628513818052,0.00672939582689108,0.00674973279257383,0.0067612760636287,0.00674108750450126,0.00669569562424156,0.00665940871237293,0.0066573968735516,0.00666545814566397,0.00665745856353591,0.00665133847922483,0.00662736328522057,0.00656499207904841,0.00657045953315156,0.00657886045682127,0.00657437176038318,0.00653416116729796,0.00651865238156706,0.00648793908759358,0.00646209707110846,0.00644640401670262,0.00641594857235764,0.0063952910788794,0.00639822134387352,0.00636239932330551,0.0063327296374178,0.0062933269033697,0.00628155734762737,0.00626899696048632,0.0062621106857602,0.00623905814896192,0.00622297840603186,0.00618654455468443,0.00613426720684841]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>death<\/th>\n      <th>confirmed<\/th>\n      <th>date<\/th>\n      <th>deathrate<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script></p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">month(date)</th>
+<th align="right">max(deathrate)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">0.0066910</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">0.0078394</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">0.0082894</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">0.0076268</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">0.0067613</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">0.0062230</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="index_files/figure-html/unnamed-chunk-4-1.png" alt="Kuwait confirmed cases" width="672" />
+<p class="caption">
+Figure 2.1: Kuwait confirmed cases
+</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
