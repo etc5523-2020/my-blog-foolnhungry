@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Junhao Wang" />
+
+
+<title>COVID-19 in Dominican Republic</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">my blog</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="post1.html">COVID-19 in Kuwait</a>
+</li>
+<li>
+  <a href="post2.html">COVID-19 in Dominican Republic</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">COVID-19 in Dominican Republic</h1>
+<h4 class="author">Junhao Wang</h4>
+
+</div>
+
+
+<pre class="r"><code>load(&quot;data/coronavirus.rda&quot;)</code></pre>
+<pre class="r"><code>covraw&lt;-coronavirus
+
+latest&lt;-covraw %&gt;% filter(type==&quot;confirmed&quot;) %&gt;%
+  group_by(country)%&gt;%
+  summarise(cases=sum(cases))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>newdata &lt;- latest[order(-latest$cases),]</code></pre>
+<pre class="r"><code>worst&lt;-newdata%&gt;%filter(cases&gt;=105521)%&gt;%
+ggplot(aes(x=reorder(country,cases),y=cases))+
+  geom_col()+
+  xlab(&quot;country&quot;)+
+  ylab(&quot;cases&quot;)+
+    coord_flip()
+ggplotly(worst) </code></pre>
+<div class="figure">
+<div id="htmlwidget-176c7e2a85acaad92f6a" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-176c7e2a85acaad92f6a">{"x":{"data":[{"orientation":"h","width":[0.900000000000002,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[6630051,5020359,4419083,1075485,738020,736377,680931,653444,614360,589012,443869,439287,410334,380677,342671,327551,303634,303059,296391,291442,272934,266869,228993,170465,166694,141852,128872,122449,121525,107056,107011,105521],"y":[32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1],"text":["reorder(country, cases): US<br />cases: 6630051","reorder(country, cases): India<br />cases: 5020359","reorder(country, cases): Brazil<br />cases: 4419083","reorder(country, cases): Russia<br />cases: 1075485","reorder(country, cases): Peru<br />cases:  738020","reorder(country, cases): Colombia<br />cases:  736377","reorder(country, cases): Mexico<br />cases:  680931","reorder(country, cases): South Africa<br />cases:  653444","reorder(country, cases): Spain<br />cases:  614360","reorder(country, cases): Argentina<br />cases:  589012","reorder(country, cases): France<br />cases:  443869","reorder(country, cases): Chile<br />cases:  439287","reorder(country, cases): Iran<br />cases:  410334","reorder(country, cases): United Kingdom<br />cases:  380677","reorder(country, cases): Bangladesh<br />cases:  342671","reorder(country, cases): Saudi Arabia<br />cases:  327551","reorder(country, cases): Pakistan<br />cases:  303634","reorder(country, cases): Iraq<br />cases:  303059","reorder(country, cases): Turkey<br />cases:  296391","reorder(country, cases): Italy<br />cases:  291442","reorder(country, cases): Philippines<br />cases:  272934","reorder(country, cases): Germany<br />cases:  266869","reorder(country, cases): Indonesia<br />cases:  228993","reorder(country, cases): Israel<br />cases:  170465","reorder(country, cases): Ukraine<br />cases:  166694","reorder(country, cases): Canada<br />cases:  141852","reorder(country, cases): Bolivia<br />cases:  128872","reorder(country, cases): Qatar<br />cases:  122449","reorder(country, cases): Ecuador<br />cases:  121525","reorder(country, cases): Kazakhstan<br />cases:  107056","reorder(country, cases): Romania<br />cases:  107011","reorder(country, cases): Dominican Republic<br />cases:  105521"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":130.776255707763},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-331502.55,6961553.55],"tickmode":"array","ticktext":["0e+00","2e+06","4e+06","6e+06"],"tickvals":[0,2000000,4000000,6000000],"categoryorder":"array","categoryarray":["0e+00","2e+06","4e+06","6e+06"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"cases","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,32.6],"tickmode":"array","ticktext":["Dominican Republic","Romania","Kazakhstan","Ecuador","Qatar","Bolivia","Canada","Ukraine","Israel","Indonesia","Germany","Philippines","Italy","Turkey","Iraq","Pakistan","Saudi Arabia","Bangladesh","United Kingdom","Iran","Chile","France","Argentina","Spain","South Africa","Mexico","Colombia","Peru","Russia","Brazil","India","US"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32],"categoryorder":"array","categoryarray":["Dominican Republic","Romania","Kazakhstan","Ecuador","Qatar","Bolivia","Canada","Ukraine","Israel","Indonesia","Germany","Philippines","Italy","Turkey","Iraq","Pakistan","Saudi Arabia","Bangladesh","United Kingdom","Iran","Chile","France","Argentina","Spain","South Africa","Mexico","Colombia","Peru","Russia","Brazil","India","US"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"country","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"25a477906eb4":{"x":{},"y":{},"type":"bar"}},"cur_data":"25a477906eb4","visdat":{"25a477906eb4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+list of countries worst influenced
+</p>
+</div>
+<p>On 1 March, the first case in the country and the Caribbean was confirmed. The first documented case of local transmission seems to have originated from a 56-year old Dominican woman from the town of Villa Riva on Duarte Province [8] who had traveled from Italy to the Dominican Republic on 26 February 2020. On 23 March, the Minister of Public Health reported two recoveries, a 12-year-old child and a 26-year-old woman. And now, the situation is shown in this figure @ref(fig:worst) that till 2020-09-16, Dominican Republic has 105521 cases confirmed, ranking 32th among 188 countries/regions.</p>
+<pre class="r"><code>daily&lt;-covraw%&gt;%filter(country==&quot;Dominican Republic&quot;,type==&quot;confirmed&quot;)%&gt;%
+  ggplot(aes(x=date,y=cases))+
+  geom_line()+
+  scale_x_date(date_breaks = &quot;1 month&quot;)+
+  theme_grey()
+ggplotly(daily)</code></pre>
+<div class="figure" style="text-align: center">
+<div id="htmlwidget-8e73dbfd42ea119f55b9" style="width:960px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8e73dbfd42ea119f55b9">{"x":{"data":[{"x":[18283,18284,18285,18286,18287,18288,18289,18290,18291,18292,18293,18294,18295,18296,18297,18298,18299,18300,18301,18302,18303,18304,18305,18306,18307,18308,18309,18310,18311,18312,18313,18314,18315,18316,18317,18318,18319,18320,18321,18322,18323,18324,18325,18326,18327,18328,18329,18330,18331,18332,18333,18334,18335,18336,18337,18338,18339,18340,18341,18342,18343,18344,18345,18346,18347,18348,18349,18350,18351,18352,18353,18354,18355,18356,18357,18358,18359,18360,18361,18362,18363,18364,18365,18366,18367,18368,18369,18370,18371,18372,18373,18374,18375,18376,18377,18378,18379,18380,18381,18382,18383,18384,18385,18386,18387,18388,18389,18390,18391,18392,18393,18394,18395,18396,18397,18398,18399,18400,18401,18402,18403,18404,18405,18406,18407,18408,18409,18410,18411,18412,18413,18414,18415,18416,18417,18418,18419,18420,18421,18422,18423,18424,18425,18426,18427,18428,18429,18430,18431,18432,18433,18434,18435,18436,18437,18438,18439,18440,18441,18442,18443,18444,18445,18446,18447,18448,18449,18450,18451,18452,18453,18454,18455,18456,18457,18458,18459,18460,18461,18462,18463,18464,18465,18466,18467,18468,18469,18470,18471,18472,18473,18474,18475,18476,18477,18478,18479,18480,18481,18482,18483,18484,18485,18486,18487,18488,18489,18490,18491,18492,18493,18494,18495,18496,18497,18498,18499,18500,18501,18502,18503,18504,18505,18506,18507,18508,18509,18510,18511,18512,18513,18514,18515,18516,18517,18518,18519,18520,18521],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,3,0,0,0,0,0,6,0,0,10,0,13,38,40,90,43,67,80,96,93,138,140,42,208,175,96,108,0,257,83,128,155,238,271,139,208,200,119,328,141,371,209,345,284,80,256,243,206,177,209,158,123,236,320,316,290,376,281,245,327,288,281,506,465,287,266,296,124,419,371,204,411,498,254,180,332,433,379,272,191,459,345,463,377,377,287,180,288,279,389,487,405,526,289,393,629,571,564,390,309,415,419,540,423,710,899,693,566,695,510,623,855,754,443,752,819,810,951,1036,1241,703,302,1158,1202,1125,1199,1418,974,799,1366,1072,1370,1406,1336,1101,841,1246,1572,1462,1819,2012,1248,534,1492,1733,1734,1766,828,874,1178,1365,876,1173,1069,954,767,595,1130,910,1354,1057,764,428,386,1004,883,857,694,600,447,609,340,407,426,342,509,474,264,648,1002,0,2147,557,565,233,806,779,516,860,568,450,693,718],"text":["date: 2020-01-22<br />cases:    0","date: 2020-01-23<br />cases:    0","date: 2020-01-24<br />cases:    0","date: 2020-01-25<br />cases:    0","date: 2020-01-26<br />cases:    0","date: 2020-01-27<br />cases:    0","date: 2020-01-28<br />cases:    0","date: 2020-01-29<br />cases:    0","date: 2020-01-30<br />cases:    0","date: 2020-01-31<br />cases:    0","date: 2020-02-01<br />cases:    0","date: 2020-02-02<br />cases:    0","date: 2020-02-03<br />cases:    0","date: 2020-02-04<br />cases:    0","date: 2020-02-05<br />cases:    0","date: 2020-02-06<br />cases:    0","date: 2020-02-07<br />cases:    0","date: 2020-02-08<br />cases:    0","date: 2020-02-09<br />cases:    0","date: 2020-02-10<br />cases:    0","date: 2020-02-11<br />cases:    0","date: 2020-02-12<br />cases:    0","date: 2020-02-13<br />cases:    0","date: 2020-02-14<br />cases:    0","date: 2020-02-15<br />cases:    0","date: 2020-02-16<br />cases:    0","date: 2020-02-17<br />cases:    0","date: 2020-02-18<br />cases:    0","date: 2020-02-19<br />cases:    0","date: 2020-02-20<br />cases:    0","date: 2020-02-21<br />cases:    0","date: 2020-02-22<br />cases:    0","date: 2020-02-23<br />cases:    0","date: 2020-02-24<br />cases:    0","date: 2020-02-25<br />cases:    0","date: 2020-02-26<br />cases:    0","date: 2020-02-27<br />cases:    0","date: 2020-02-28<br />cases:    0","date: 2020-02-29<br />cases:    0","date: 2020-03-01<br />cases:    1","date: 2020-03-02<br />cases:    0","date: 2020-03-03<br />cases:    0","date: 2020-03-04<br />cases:    0","date: 2020-03-05<br />cases:    0","date: 2020-03-06<br />cases:    1","date: 2020-03-07<br />cases:    0","date: 2020-03-08<br />cases:    3","date: 2020-03-09<br />cases:    0","date: 2020-03-10<br />cases:    0","date: 2020-03-11<br />cases:    0","date: 2020-03-12<br />cases:    0","date: 2020-03-13<br />cases:    0","date: 2020-03-14<br />cases:    6","date: 2020-03-15<br />cases:    0","date: 2020-03-16<br />cases:    0","date: 2020-03-17<br />cases:   10","date: 2020-03-18<br />cases:    0","date: 2020-03-19<br />cases:   13","date: 2020-03-20<br />cases:   38","date: 2020-03-21<br />cases:   40","date: 2020-03-22<br />cases:   90","date: 2020-03-23<br />cases:   43","date: 2020-03-24<br />cases:   67","date: 2020-03-25<br />cases:   80","date: 2020-03-26<br />cases:   96","date: 2020-03-27<br />cases:   93","date: 2020-03-28<br />cases:  138","date: 2020-03-29<br />cases:  140","date: 2020-03-30<br />cases:   42","date: 2020-03-31<br />cases:  208","date: 2020-04-01<br />cases:  175","date: 2020-04-02<br />cases:   96","date: 2020-04-03<br />cases:  108","date: 2020-04-04<br />cases:    0","date: 2020-04-05<br />cases:  257","date: 2020-04-06<br />cases:   83","date: 2020-04-07<br />cases:  128","date: 2020-04-08<br />cases:  155","date: 2020-04-09<br />cases:  238","date: 2020-04-10<br />cases:  271","date: 2020-04-11<br />cases:  139","date: 2020-04-12<br />cases:  208","date: 2020-04-13<br />cases:  200","date: 2020-04-14<br />cases:  119","date: 2020-04-15<br />cases:  328","date: 2020-04-16<br />cases:  141","date: 2020-04-17<br />cases:  371","date: 2020-04-18<br />cases:  209","date: 2020-04-19<br />cases:  345","date: 2020-04-20<br />cases:  284","date: 2020-04-21<br />cases:   80","date: 2020-04-22<br />cases:  256","date: 2020-04-23<br />cases:  243","date: 2020-04-24<br />cases:  206","date: 2020-04-25<br />cases:  177","date: 2020-04-26<br />cases:  209","date: 2020-04-27<br />cases:  158","date: 2020-04-28<br />cases:  123","date: 2020-04-29<br />cases:  236","date: 2020-04-30<br />cases:  320","date: 2020-05-01<br />cases:  316","date: 2020-05-02<br />cases:  290","date: 2020-05-03<br />cases:  376","date: 2020-05-04<br />cases:  281","date: 2020-05-05<br />cases:  245","date: 2020-05-06<br />cases:  327","date: 2020-05-07<br />cases:  288","date: 2020-05-08<br />cases:  281","date: 2020-05-09<br />cases:  506","date: 2020-05-10<br />cases:  465","date: 2020-05-11<br />cases:  287","date: 2020-05-12<br />cases:  266","date: 2020-05-13<br />cases:  296","date: 2020-05-14<br />cases:  124","date: 2020-05-15<br />cases:  419","date: 2020-05-16<br />cases:  371","date: 2020-05-17<br />cases:  204","date: 2020-05-18<br />cases:  411","date: 2020-05-19<br />cases:  498","date: 2020-05-20<br />cases:  254","date: 2020-05-21<br />cases:  180","date: 2020-05-22<br />cases:  332","date: 2020-05-23<br />cases:  433","date: 2020-05-24<br />cases:  379","date: 2020-05-25<br />cases:  272","date: 2020-05-26<br />cases:  191","date: 2020-05-27<br />cases:  459","date: 2020-05-28<br />cases:  345","date: 2020-05-29<br />cases:  463","date: 2020-05-30<br />cases:  377","date: 2020-05-31<br />cases:  377","date: 2020-06-01<br />cases:  287","date: 2020-06-02<br />cases:  180","date: 2020-06-03<br />cases:  288","date: 2020-06-04<br />cases:  279","date: 2020-06-05<br />cases:  389","date: 2020-06-06<br />cases:  487","date: 2020-06-07<br />cases:  405","date: 2020-06-08<br />cases:  526","date: 2020-06-09<br />cases:  289","date: 2020-06-10<br />cases:  393","date: 2020-06-11<br />cases:  629","date: 2020-06-12<br />cases:  571","date: 2020-06-13<br />cases:  564","date: 2020-06-14<br />cases:  390","date: 2020-06-15<br />cases:  309","date: 2020-06-16<br />cases:  415","date: 2020-06-17<br />cases:  419","date: 2020-06-18<br />cases:  540","date: 2020-06-19<br />cases:  423","date: 2020-06-20<br />cases:  710","date: 2020-06-21<br />cases:  899","date: 2020-06-22<br />cases:  693","date: 2020-06-23<br />cases:  566","date: 2020-06-24<br />cases:  695","date: 2020-06-25<br />cases:  510","date: 2020-06-26<br />cases:  623","date: 2020-06-27<br />cases:  855","date: 2020-06-28<br />cases:  754","date: 2020-06-29<br />cases:  443","date: 2020-06-30<br />cases:  752","date: 2020-07-01<br />cases:  819","date: 2020-07-02<br />cases:  810","date: 2020-07-03<br />cases:  951","date: 2020-07-04<br />cases: 1036","date: 2020-07-05<br />cases: 1241","date: 2020-07-06<br />cases:  703","date: 2020-07-07<br />cases:  302","date: 2020-07-08<br />cases: 1158","date: 2020-07-09<br />cases: 1202","date: 2020-07-10<br />cases: 1125","date: 2020-07-11<br />cases: 1199","date: 2020-07-12<br />cases: 1418","date: 2020-07-13<br />cases:  974","date: 2020-07-14<br />cases:  799","date: 2020-07-15<br />cases: 1366","date: 2020-07-16<br />cases: 1072","date: 2020-07-17<br />cases: 1370","date: 2020-07-18<br />cases: 1406","date: 2020-07-19<br />cases: 1336","date: 2020-07-20<br />cases: 1101","date: 2020-07-21<br />cases:  841","date: 2020-07-22<br />cases: 1246","date: 2020-07-23<br />cases: 1572","date: 2020-07-24<br />cases: 1462","date: 2020-07-25<br />cases: 1819","date: 2020-07-26<br />cases: 2012","date: 2020-07-27<br />cases: 1248","date: 2020-07-28<br />cases:  534","date: 2020-07-29<br />cases: 1492","date: 2020-07-30<br />cases: 1733","date: 2020-07-31<br />cases: 1734","date: 2020-08-01<br />cases: 1766","date: 2020-08-02<br />cases:  828","date: 2020-08-03<br />cases:  874","date: 2020-08-04<br />cases: 1178","date: 2020-08-05<br />cases: 1365","date: 2020-08-06<br />cases:  876","date: 2020-08-07<br />cases: 1173","date: 2020-08-08<br />cases: 1069","date: 2020-08-09<br />cases:  954","date: 2020-08-10<br />cases:  767","date: 2020-08-11<br />cases:  595","date: 2020-08-12<br />cases: 1130","date: 2020-08-13<br />cases:  910","date: 2020-08-14<br />cases: 1354","date: 2020-08-15<br />cases: 1057","date: 2020-08-16<br />cases:  764","date: 2020-08-17<br />cases:  428","date: 2020-08-18<br />cases:  386","date: 2020-08-19<br />cases: 1004","date: 2020-08-20<br />cases:  883","date: 2020-08-21<br />cases:  857","date: 2020-08-22<br />cases:  694","date: 2020-08-23<br />cases:  600","date: 2020-08-24<br />cases:  447","date: 2020-08-25<br />cases:  609","date: 2020-08-26<br />cases:  340","date: 2020-08-27<br />cases:  407","date: 2020-08-28<br />cases:  426","date: 2020-08-29<br />cases:  342","date: 2020-08-30<br />cases:  509","date: 2020-08-31<br />cases:  474","date: 2020-09-01<br />cases:  264","date: 2020-09-02<br />cases:  648","date: 2020-09-03<br />cases: 1002","date: 2020-09-04<br />cases:    0","date: 2020-09-05<br />cases: 2147","date: 2020-09-06<br />cases:  557","date: 2020-09-07<br />cases:  565","date: 2020-09-08<br />cases:  233","date: 2020-09-09<br />cases:  806","date: 2020-09-10<br />cases:  779","date: 2020-09-11<br />cases:  516","date: 2020-09-12<br />cases:  860","date: 2020-09-13<br />cases:  568","date: 2020-09-14<br />cases:  450","date: 2020-09-15<br />cases:  693","date: 2020-09-16<br />cases:  718"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":30.6118721461187,"r":7.30593607305936,"b":44.5662100456621,"l":48.9497716894977},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[18271.1,18532.9],"tickmode":"array","ticktext":["2020-02-01","2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01"],"tickvals":[18293,18322,18353,18383,18414,18444,18475,18506],"categoryorder":"array","categoryarray":["2020-02-01","2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"date","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-107.35,2254.35],"tickmode":"array","ticktext":["0","500","1000","1500","2000"],"tickvals":[0,500,1000,1500,2000],"categoryorder":"array","categoryarray":["0","500","1000","1500","2000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"cases","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"25a42e6b2cd4":{"x":{},"y":{},"type":"scatter"}},"cur_data":"25a42e6b2cd4","visdat":{"25a42e6b2cd4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+daily increased confirmed cases
+</p>
+</div>
+<p>From this figure @ref(fig:daily) we can see an interesting spike on 2020-09-05, so what happened? I assume that day must conducted unusually amount of test, so I try to search relative news and found that the government received 20 thousand quick tests on 09-03, and 0 cases increased on 09-04, I guess they were preparing for the new quick tests.</p>
+<p>Besides, the “new phase” which loosen resitrictions was announced on May 18, but unfortunately, daily increases gradually went up since then. Government Measures:</p>
+<p>March 17, President Danilo Medina gave an address to the nation and declared a state of emergency, announcing a series of measures to try and stop the spread of the virus.</p>
+<p>March 26, the government extended the night curfew schedule to 13 hours: from 5pm to 6am.</p>
+<p>May 18, 2020 After the Dominican Republic became one of the countries of the Americas that has responded best to the coronavirus, President Danilo Medina announced the phased and gradual entry into a new phase: “Living with COVID-19 safely.”</p>
+<p>June 5, 2020, The Minister of Public Health, Rafael Sánchez Cárdenas, announced that the authorization certificates of three new laboratories were issued in public hospitals to perform reaction samples in the PCR polymerase chain.</p>
+<p>June 30, 2020, The Minister of Public Health, Rafael Sánchez Cárdenas, announced the issuance of Resolution 0018, under Law 42-01 General of Health, which declares the national territory epidemic to control the spread of coronavirus (COVID-19). Mandatory use of masks and other measures</p>
+<div id="reference" class="section level2">
+<h2>reference</h2>
+<p>WHO Coronavirus Disease (COVID-19) Dashboard. Covid19.who.int. (2020). Retrieved 18 September 2020, from <a href="https://covid19.who.int/" class="uri">https://covid19.who.int/</a>.</p>
+<p>COVID-19 pandemic in the Dominican Republic. En.wikipedia.org. (2020). Retrieved 18 September 2020, from <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_Dominican_Republic" class="uri">https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_Dominican_Republic</a>.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

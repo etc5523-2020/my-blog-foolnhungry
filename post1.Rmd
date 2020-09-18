@@ -1,0 +1,57 @@
+---
+title: "COVID-19 in Kuwait"
+author: "Junhao Wang"
+output:
+ bookdown::html_document2
+keep_md: true
+---
+
+
+
+
+
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(warning = FALSE,message = FALSE,echo = FALSE) 
+```
+
+```{r}
+library(readr)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(knitr)
+library(bookdown)
+```
+# data source: 
+    Datasets are from https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
+    
+# data discription:
+     These two datasets contain the Information about the number of confirmed and number of death from all over the world
+```{r}
+case<-read.csv("data/time_series_covid19_confirmed_global.csv")
+Kuwaitcase<-case%>%filter(Country.Region=="Kuwait")%>%
+  pivot_longer(cols = starts_with("X"), names_to = "time", values_to = "case")%>%
+  mutate(time = str_remove(time, "[X]"))%>%mutate(d=as.character(time))
+death<-read.csv("data/time_series_covid19_deaths_global.csv")
+Kuwaitdeathrate<-death%>%filter(Country.Region=="Kuwait")%>%
+  pivot_longer(cols = starts_with("X"), names_to = "time", values_to = "case")%>%
+  mutate(time = str_remove(time, "[X]"))%>%mutate(d=as.character(time))%>%left_join(Kuwaitcase,by ="d")%>%
+  mutate(date=mdy(time.x))%>%select(death=case.x,confirmed=case.y,date)%>%filter(confirmed>0)%>%mutate(deathrate=death/confirmed)
+
+```
+As is shown below \@ref(tab:table) , the number of confirmed cases is steadily growing, there is some policies like government suspending work and suspending air travel and border travel, and curfew carried out, and we can see that the number of cases confirmed is not exploding, I believe these policies worked a bit, but the country has not controlled the situation yet.
+```{r table}
+DT::datatable(Kuwaitdeathrate)
+```
+```{r tab}
+Kuwaitdeathrate%>%group_by(month(date))%>%summarise(max(deathrate))%>%kable()
+```
+
+```{r fig.align='center',fig.cap="Kuwait confirmed cases"}
+ggplot(Kuwaitdeathrate)+
+geom_line(aes(x=date,y=confirmed))
+```
+
+
+

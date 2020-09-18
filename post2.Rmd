@@ -1,0 +1,82 @@
+---
+title: "COVID-19 in Dominican Republic"
+author: "Junhao Wang"
+output: 
+  bookdown::html_document2
+keep_md: true
+---
+
+```{r setglobal, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(plotly)
+library(kableExtra)
+library(bookdown)
+```
+
+```{r data}
+load("data/coronavirus.rda")
+```
+
+```{r wrangling}
+covraw<-coronavirus
+
+latest<-covraw %>% filter(type=="confirmed") %>%
+  group_by(country)%>%
+  summarise(cases=sum(cases))
+newdata <- latest[order(-latest$cases),]
+```
+
+```{r worst, fig.cap="list of countries worst influenced"}
+worst<-newdata%>%filter(cases>=105521)%>%
+ggplot(aes(x=reorder(country,cases),y=cases))+
+  geom_col()+
+  xlab("country")+
+  ylab("cases")+
+    coord_flip()
+ggplotly(worst) 
+```
+
+On 1 March, the first case in the country and the Caribbean was confirmed. 
+The first documented case of local transmission seems to have originated from a 56-year old Dominican woman from the town of Villa Riva on Duarte Province [8] who had traveled from Italy to the Dominican Republic on 26 February 2020.
+On 23 March, the Minister of Public Health reported two recoveries, a 12-year-old child and a 26-year-old woman.
+And now, the situation is shown in this figure \@ref(fig:worst) that till 2020-09-16, Dominican Republic has 105521 cases confirmed, ranking 32th among 188 countries/regions.
+
+
+```{r daily,fig.width=10, fig.align='center', fig.cap="daily increased confirmed cases"}
+daily<-covraw%>%filter(country=="Dominican Republic",type=="confirmed")%>%
+  ggplot(aes(x=date,y=cases))+
+  geom_line()+
+  scale_x_date(date_breaks = "1 month")+
+  theme_grey()
+ggplotly(daily)
+```
+
+From this figure \@ref(fig:daily) we can see an interesting spike on 2020-09-05, so what happened? I assume that day must conducted unusually amount of test, so I try to search relative news and found that the government received 20 thousand quick tests on 09-03, and 0 cases increased on 09-04, I guess they were preparing for the new quick tests.
+
+Besides, the "new phase" which loosen resitrictions was announced on May 18, but unfortunately, daily increases gradually went up since then.
+Government Measures:
+
+March 17, 
+President Danilo Medina gave an address to the nation and declared a state of emergency, announcing a series of measures to try and stop the spread of the virus.
+
+March 26, 
+the government extended the night curfew schedule to 13 hours: from 5pm to 6am.
+
+May 18, 2020
+After the Dominican Republic became one of the countries of the Americas that has responded best to the coronavirus, President Danilo Medina announced the phased and gradual entry into a new phase: "Living with COVID-19 safely."
+
+June 5, 2020, 
+The Minister of Public Health, Rafael Sánchez Cárdenas, announced that the authorization certificates of three new laboratories were issued in public hospitals to perform reaction samples in the PCR polymerase chain.
+
+June 30, 2020, 
+The Minister of Public Health, Rafael Sánchez Cárdenas, announced the issuance of Resolution 0018, under Law 42-01 General of Health, which declares the national territory epidemic to control the spread of coronavirus (COVID-19).
+Mandatory use of masks and other measures
+
+## reference
+WHO Coronavirus Disease (COVID-19) Dashboard. Covid19.who.int. (2020). Retrieved 18 September 2020, from https://covid19.who.int/.
+
+COVID-19 pandemic in the Dominican Republic. En.wikipedia.org. (2020). Retrieved 18 September 2020, from https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_Dominican_Republic.

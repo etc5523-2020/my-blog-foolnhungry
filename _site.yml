@@ -2,7 +2,9 @@ navbar:
    title: "my blog"
    left:
      - text: "COVID-19 in Kuwait"
-       href: index.html
+       href: post1.html
+     - text: "COVID-19 in Dominican Republic"
+       href: post2.html
 output:
    html_document:
      theme: darkly
