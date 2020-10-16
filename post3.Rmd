@@ -1,0 +1,39 @@
+---
+title: "Self-reflection"
+author: "Junhao Wang"
+date: "16/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---------------------------------------------
+
+# Introduction
+This blog is a self-reflection about the shiny-app assignment. The shiny app I built is about the COVID-19 situation in Australia and it includes 3 sections——the plot section, the table section, and the about section. Data is from a package called "coronavirus".
+
+## Plot Section
+I built two interactive plots: one is a bar graph to show for each state, the newest cumulative number of confirmed cases available in that package.the other is to show the trend of confirmed cases from 2020-01-22 to 2020-08-31 in each state. When click on the bar in the first plot, the second plot will react to show the corresponding state.
+
+## Table Section
+In this section, I built a table and intended to let user explore by choosing the type of the cases(death, confirmed, recovered).
+
+## About
+This section contains basic information about 
+
+# Self Review
+
+ What did I do well?  |   What are the points I can improve on?
+----------------------|---------------------------------------
+1. I applied shiny theme and used icons beside tab title to make the interface visual appealing. |      1.The content is not abundant enough. 
+2. The data is directly from a package, makes the shiny app be reproduced easily. |      2.The data visualization can be improved.
+3. The interface is well organized.                                                                                 |  3. The table can be more interactive.
+## additional point:
+
+### What are some things that you’d like to add that’s plausible? 
+I would like to add a dynamic map that change over time to show the variation of the situation among these states.
+
+### What are some things that you’d like to add that cannot be done yet due to limitation in data or technology?
+I want to improve the table to have more interaction.

@@ -46,7 +46,7 @@ On 23 March, the Minister of Public Health reported two recoveries, a 12-year-ol
 And now, the situation is shown in this figure \@ref(fig:worst) that till 2020-09-16, Dominican Republic has 105521 cases confirmed, ranking 32th among 188 countries/regions.
 
 
-```{r daily,fig.width=10, fig.align='center', fig.cap="daily increased confirmed cases"}
+```{r dailAy, fig.cap="1"}
 daily<-covraw%>%filter(country=="Dominican Republic",type=="confirmed")%>%
   ggplot(aes(x=date,y=cases))+
   geom_line()+
@@ -55,7 +55,13 @@ daily<-covraw%>%filter(country=="Dominican Republic",type=="confirmed")%>%
 ggplotly(daily)
 ```
 
-From this figure \@ref(fig:daily) we can see an interesting spike on 2020-09-05, so what happened? I assume that day must conducted unusually amount of test, so I try to search relative news and found that the government received 20 thousand quick tests on 09-03, and 0 cases increased on 09-04, I guess they were preparing for the new quick tests.
+From this 
+
+Figure \@ref(fig:dailAy)
+
+
+
+we can see an interesting spike on 2020-09-05, so what happened? I assume that day must conducted unusually amount of test, so I try to search relative news and found that the government received 20 thousand quick tests on 09-03, and 0 cases increased on 09-04, I guess they were preparing for the new quick tests.
 
 Besides, the "new phase" which loosen resitrictions was announced on May 18, but unfortunately, daily increases gradually went up since then.
 Government Measures:
