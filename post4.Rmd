@@ -1,0 +1,61 @@
+---
+title: "post4"
+author: "Junhao Wang"
+date: "30/10/2020"
+output: html_document
+---
+
+
+## Package Review
+
+## Overview  
+This blog post is to created feedback to the R package`cwdcovid19` created by my peer Yan Ma. The package is available  [here](https://github.com/etc5523-2020/r-package-assessment-1029YanMa/actions). The goal of the package is to check the daily COVID-19 cases data of Chile or Bolivia using the launch\_dt() function. Or use the launch\_confirm\_period() function to see the confirmed cases of your selected time period in these two
+country.
+There are 4 functions in this package:  
+- `launch_app`  
+- `n_countries`  
+- `launch_confirm_period`  
+- `launch_dt`  
+
+## What did I think this package would do? Did it do it?   
+
+### What I expected the package would do:  
+
+- It can be installed without error
+- The function launch_app works well.
+- documentation is clear.
+
+### and...
+
+The package can be installed easily with the code provided in the readme.md, and the app can run using `launch_app()`, all the elements of the package are well documented, 
+
+## Recommendations
+### Recommendation for the code:
+I think the code looks perfect, very effective and easy to read. 
+If I have to say something that the author may improve, the documentation can be a bit more detailed.
+
+### Recommendation for the shiny application:
+I think the app is creative and informative, but I think the layout of the app is too long, and I think put the table and the graph side by side or seperate in two tab are better choices especially viewing on full screen.
+
+## What I have learned from the package
+From the package, I learned the following things:  
+- README file and documentation are key for communication. I will improve my documentation.  
+- Data and functions should be organized in different files so that both reader and the author can understand the package and do improvement better.
+
+
+
+## Package Review
+#### Documentation
+The package includes all the following forms of documentation  
+
+- [ ] **Installation instructions:** for the package is found in README.  
+- [ ] **Vignette(s)** demonstrating major functionality that runs successfully locally.  
+- [ ] **Function Documentation:** for all exported functions in R help.  
+- [ ] **Examples** for all exported functions in R Help that run successfully locally.
+
+#### Functionality  
+- [ ] **Installation:** Installation succeeds as documented.  
+- [ ] **Functionality:** Any functional claims of the software been confirmed.  
+- [ ] **Automated tests:** Unit tests cover essential functions of the package
+and a reasonable range of inputs and conditions. All tests pass on the local machine.
+

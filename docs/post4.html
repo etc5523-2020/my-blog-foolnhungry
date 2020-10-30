@@ -12,7 +12,7 @@
 <meta name="author" content="Junhao Wang" />
 
 
-<title>Self-reflection</title>
+<title>post4</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -296,68 +296,87 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Self-reflection</h1>
+<h1 class="title toc-ignore">post4</h1>
 <h4 class="author">Junhao Wang</h4>
-<h4 class="date">16/10/2020</h4>
+<h4 class="date">30/10/2020</h4>
 
 </div>
 
 
-<hr />
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This blog is a self-reflection about the shiny-app assignment. The shiny app I built is about the COVID-19 situation in Australia and it includes 3 sections——the plot section, the table section, and the about section. Data is from a package called “coronavirus”.</p>
-<div id="plot-section" class="section level2">
-<h2>Plot Section</h2>
-<p>I built two interactive plots: one is a bar graph to show for each state, the newest cumulative number of confirmed cases available in that package.the other is to show the trend of confirmed cases from 2020-01-22 to 2020-08-31 in each state. When click on the bar in the first plot, the second plot will react to show the corresponding state.</p>
+<div id="package-review" class="section level2">
+<h2>Package Review</h2>
 </div>
-<div id="table-section" class="section level2">
-<h2>Table Section</h2>
-<p>In this section, I built a table and intended to let user explore by choosing the type of the cases(death, confirmed, recovered).</p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This blog post is to created feedback to the R package<code>cwdcovid19</code> created by my peer Yan Ma. The package is available <a href="https://github.com/etc5523-2020/r-package-assessment-1029YanMa/actions">here</a>. The goal of the package is to check the daily COVID-19 cases data of Chile or Bolivia using the launch_dt() function. Or use the launch_confirm_period() function to see the confirmed cases of your selected time period in these two country. There are 4 functions in this package:<br />
+- <code>launch_app</code><br />
+- <code>n_countries</code><br />
+- <code>launch_confirm_period</code><br />
+- <code>launch_dt</code></p>
 </div>
-<div id="about" class="section level2">
-<h2>About</h2>
-<p>This section contains basic information about</p>
+<div id="what-did-i-think-this-package-would-do-did-it-do-it" class="section level2">
+<h2>What did I think this package would do? Did it do it?</h2>
+<div id="what-i-expected-the-package-would-do" class="section level3">
+<h3>What I expected the package would do:</h3>
+<ul>
+<li>It can be installed without error</li>
+<li>The function launch_app works well.</li>
+<li>documentation is clear.</li>
+</ul>
+</div>
+<div id="and" class="section level3">
+<h3>and…</h3>
+<p>The package can be installed easily with the code provided in the readme.md, and the app can run using <code>launch_app()</code>, all the elements of the package are well documented,</p>
 </div>
 </div>
-<div id="self-review" class="section level1">
-<h1>Self Review</h1>
-<table>
-<colgroup>
-<col width="36%" />
-<col width="63%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>What did I do well?</th>
-<th>What are the points I can improve on?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. I applied shiny theme and used icons beside tab title to make the interface visual appealing.</td>
-<td>1.The content is not abundant enough.</td>
-</tr>
-<tr class="even">
-<td>2. The data is directly from a package, makes the shiny app be reproduced easily.</td>
-<td>2.The data visualization can be improved.</td>
-</tr>
-<tr class="odd">
-<td>3. The interface is well organized.</td>
-<td>3. The table can be more interactive.</td>
-</tr>
-</tbody>
-</table>
-<div id="additional-point" class="section level2">
-<h2>additional point:</h2>
-<div id="what-are-some-things-that-youd-like-to-add-thats-plausible" class="section level3">
-<h3>What are some things that you’d like to add that’s plausible?</h3>
-<p>I would like to add a dynamic map that change over time to show the variation of the situation among these states.</p>
+<div id="recommendations" class="section level2">
+<h2>Recommendations</h2>
+<div id="recommendation-for-the-code" class="section level3">
+<h3>Recommendation for the code:</h3>
+<p>I think the code looks perfect, very effective and easy to read. If I have to say something that the author may improve, the documentation can be a bit more detailed.</p>
 </div>
-<div id="what-are-some-things-that-youd-like-to-add-that-cannot-be-done-yet-due-to-limitation-in-data-or-technology" class="section level3">
-<h3>What are some things that you’d like to add that cannot be done yet due to limitation in data or technology?</h3>
-<p>I want to improve the table to have more interaction.</p>
+<div id="recommendation-for-the-shiny-application" class="section level3">
+<h3>Recommendation for the shiny application:</h3>
+<p>I think the app is creative and informative, but I think the layout of the app is too long, and I think put the table and the graph side by side or seperate in two tab are better choices especially viewing on full screen.</p>
 </div>
+</div>
+<div id="what-i-have-learned-from-the-package" class="section level2">
+<h2>What I have learned from the package</h2>
+<p>From the package, I learned the following things:<br />
+- README file and documentation are key for communication. I will improve my documentation.<br />
+- Data and functions should be organized in different files so that both reader and the author can understand the package and do improvement better.</p>
+</div>
+<div id="package-review-1" class="section level2">
+<h2>Package Review</h2>
+<div id="documentation" class="section level4">
+<h4>Documentation</h4>
+<p>The package includes all the following forms of documentation</p>
+<ul>
+<li><input type="checkbox" disabled="" />
+<strong>Installation instructions:</strong> for the package is found in README.<br />
+</li>
+<li><input type="checkbox" disabled="" />
+<strong>Vignette(s)</strong> demonstrating major functionality that runs successfully locally.<br />
+</li>
+<li><input type="checkbox" disabled="" />
+<strong>Function Documentation:</strong> for all exported functions in R help.<br />
+</li>
+<li><input type="checkbox" disabled="" />
+<strong>Examples</strong> for all exported functions in R Help that run successfully locally.</li>
+</ul>
+</div>
+<div id="functionality" class="section level4">
+<h4>Functionality</h4>
+<ul>
+<li><input type="checkbox" disabled="" />
+<strong>Installation:</strong> Installation succeeds as documented.<br />
+</li>
+<li><input type="checkbox" disabled="" />
+<strong>Functionality:</strong> Any functional claims of the software been confirmed.<br />
+</li>
+<li><input type="checkbox" disabled="" />
+<strong>Automated tests:</strong> Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.</li>
+</ul>
 </div>
 </div>
 
